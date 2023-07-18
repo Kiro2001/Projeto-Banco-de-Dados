@@ -51,7 +51,7 @@ public class RankProf extends javax.swing.JFrame {
             @Override
             public boolean isCellEditable(int row, int column){return false;}};
         try {
-            PreparedStatement ps =con.prepareStatement("select FKnomeProf,cast(avg(nota) as decimal(3, 2)) as media from avaliacao where Alvo = 'Professor' group by FKidturma order by media DESC;");
+            PreparedStatement ps =con.prepareStatement("select FKnomeProf,cast(avg(nota) as decimal(3, 2)) as media from avaliacao where Alvo = 'Professor' group by FKnomeProf order by media DESC;");
             ResultSet rs = ps.executeQuery();
             while(rs.next()==true){
                 Object linha[] = {rs.getString(1),rs.getString(2)};
